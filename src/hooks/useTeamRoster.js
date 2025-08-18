@@ -16,7 +16,7 @@ export function useTeamRoster(initialSize = 14) {
 
   const handleNameChange = (index, e) => {
     setRows((r) =>
-      r.map((x, idx) => (idx === index ? { ...x, number: e.target.value } : x))
+      r.map((x, idx) => (idx === index ? { ...x, name: e.target.value } : x))
     );
   };
 
