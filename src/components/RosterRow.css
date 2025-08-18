@@ -1,0 +1,17 @@
+.remove-button {
+  font-weight: bold;
+  background-color: rgb(188, 50, 50);
+  color:white;
+  border: none;
+  border-radius: 3px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.remove-button:hover {
+  background-color: rgb(220, 66, 66);
+}
+
+.remove-button:active {
+  background-color: rgb(188, 50, 50);
+}

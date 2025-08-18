@@ -1,0 +1,47 @@
+.rosters-title {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  flex-direction: column;
+}
+
+.teams-container {
+  display: flex;
+  /* justify-content: center; */
+  margin-top: 20px; 
+}
+
+.home-team {
+  color:rgb(33, 33, 186);
+  align-items: center;
+}
+
+.away-team {
+  color: white;
+  align-items: center;
+}
+
+.home-team,
+.away-team {
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.roster-input-container {
+  color: black;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.player-number {
+  padding-right: 10px;
+  padding-top: 3px;
+}
+
+.roster-input {
+  display: flex;
+}
