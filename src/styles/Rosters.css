@@ -76,7 +76,8 @@
   margin-top: 30px;
 }
 
-.submit-all-button {
+.submit-all-button,
+.clear-all-button {
   background-color: darkgray;
   border: none;
   margin-bottom: 10px;
@@ -84,12 +85,20 @@
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-.submit-all-button:hover {
+.submit-all-button:hover,
+.clear-all-button:hover {
   background-color: rgb(212, 211, 211);
 }
 
-.submit-all-button:active {
+.submit-all-button:active,
+.clear-all-button:active {
   background-color: darkgray;
+}
+
+.clear-all-button:disabled {
+  cursor: not-allowed;
 }

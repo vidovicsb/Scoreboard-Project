@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export function useRosters() {
   const [homeTeam, setHomeTeam] = useState(
@@ -8,6 +8,25 @@ export function useRosters() {
   const [awayTeam, setAwayTeam] = useState(
     Array.from({ length: 14 }, (_, i) => ({ number: i + 1, name: "" }))
   );
+
+  const [isClearing, setIsClearing] = useState(false);
+  const [hasRosters, setHasRosters] = useState(false);
+
+  const checkRosters = useCallback(async () => {
+    try {
+      const res = await fetch('http://localhost:3001/rosters');
+      if (!res.ok) throw new Error(`Failed: ${res.status}`);
+      const data = await res.json();
+      setHasRosters(data.length > 0);
+    } catch (error) {
+      console.error("Error checking rosters:", error);
+      setHasRosters(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    checkRosters();
+  }, [checkRosters]);
 
   const updatePlayer = (team, index, field, value) => {
     const setTeam = team === 'home' ? setHomeTeam : setAwayTeam;
@@ -71,6 +90,7 @@ export function useRosters() {
       }
 
       await Promise.all(promises);
+      checkRosters();
       alert("Rosters submitted successfully!");
       
       // Clear forms after successful submission
@@ -83,12 +103,48 @@ export function useRosters() {
     }
   };
 
+  const clearAllRosters = useCallback(async () => {
+    const confirmed = window.confirm(
+      "This will delete ALL rosters. Cannot be undone. Continue?"
+    )
+    if (!confirmed) return false;
+
+    setIsClearing(true);
+    try {
+      const listRes = await fetch('http://localhost:3001/rosters');
+      if (!listRes.ok) throw new Error(`List failed: ${listRes.status}`);
+      const items = await listRes.json();
+
+      await Promise.all(
+        items.map(item =>
+          fetch(`http://localhost:3001/rosters/${item.id}`, { method: "DELETE" })
+        )
+      );
+
+      setHomeTeam(Array.from({ length: 14 }, (_, i) => ({ number: i + 1, name: "" })));
+      setHomeTeam(Array.from({ length: 14 }, (_, i) => ({ number: i + 1, name: "" })));
+      await checkRosters();
+      alert("All rosters cleared.");
+      return true;
+    } catch (error) {
+      console.error("Error clearing rosters:", error);
+      alert("Failed to clear rosters. Please try again!");
+      return false;
+    } finally {
+      setIsClearing(false);
+    }
+  }, [checkRosters]);
+
   return {
     homeTeam,
     awayTeam,
     updatePlayer,
     addPlayer,
     removePlayer,
-    submitRosters
+    submitRosters,
+    clearAllRosters,
+    isClearing,
+    hasRosters,
+    checkRosters
   };
 }

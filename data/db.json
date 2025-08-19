@@ -1,32 +1,3 @@
 {
-  "rosters": [
-    {
-      "id": "3b5b",
-      "teamName": "Home Team",
-      "players": [
-        {
-          "number": 1,
-          "name": "Vido"
-        },
-        {
-          "number": 2,
-          "name": "Mike"
-        }
-      ]
-    },
-    {
-      "id": "944d",
-      "teamName": "Away Team",
-      "players": [
-        {
-          "number": 1,
-          "name": "David"
-        },
-        {
-          "number": 2,
-          "name": "Ken"
-        }
-      ]
-    }
-  ]
+  "rosters": []
 }

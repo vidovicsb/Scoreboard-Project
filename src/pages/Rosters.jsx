@@ -11,6 +11,9 @@ export function Rosters() {
     addPlayer,
     removePlayer,
     submitRosters,
+    clearAllRosters,
+    isClearing,
+    hasRosters,
   } = useRosters();
 
   return (
@@ -43,6 +46,13 @@ export function Rosters() {
       <div className="submit-all-container">
         <button className="submit-all-button" onClick={submitRosters}>
           Submit All Rosters
+        </button>
+        <button
+          className="clear-all-button"
+          onClick={clearAllRosters}
+          disabled={isClearing || !hasRosters}
+        >
+          {isClearing ? "Clearing..." : "Clear All Rosters"}
         </button>
       </div>
     </>
