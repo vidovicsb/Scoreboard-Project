@@ -1,20 +1,24 @@
-import './RosterRow.css';
+import "./RosterRow.css";
 
-export function RosterRow({ row, index, onNumberChange, onNameChange, onRemove }) {
+export function RosterRow({ player, onNumberChange, onNameChange, onRemove }) {
   return (
     <div className="roster-row">
       <input
+        className="number-input"
         placeholder="Number"
-        value={row.number || ""}
-        onChange={(e) => onNumberChange(index, e)}
+        value={player.number || ""}
+        onChange={onNumberChange}
       />
       <input
+        className="name-input"
         type="text"
         placeholder="Name"
-        value={row.name || ""}
-        onChange={(e) => onNameChange(index, e)}
+        value={player.name || ""}
+        onChange={onNameChange}
       />
-      <button className="remove-button" onClick={onRemove}>X</button>
+      <button className="remove-button" onClick={onRemove}>
+        X
+      </button>
     </div>
-  )
+  );
 }

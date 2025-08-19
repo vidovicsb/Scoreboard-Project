@@ -8,7 +8,6 @@
 .teams-container {
   display: flex;
   justify-content: space-around;
-
   margin-top: 20px; 
 }
 
@@ -45,4 +44,52 @@
 
 .roster-input {
   display: flex;
+}
+
+.submit-roster {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.submit-button {
+    background-color: darkgray;
+      border: none;
+      margin-bottom: 10px;
+      padding: 10px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+}
+
+.submit-button:hover {
+  background-color: rgb(212, 211, 211);
+}
+
+.submit-button:active {
+  background-color: darkgray;
+}
+
+.submit-all-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.submit-all-button {
+  background-color: darkgray;
+  border: none;
+  margin-bottom: 10px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.submit-all-button:hover {
+  background-color: rgb(212, 211, 211);
+}
+
+.submit-all-button:active {
+  background-color: darkgray;
 }

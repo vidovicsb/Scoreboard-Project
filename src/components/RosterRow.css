@@ -15,3 +15,21 @@
 .remove-button:active {
   background-color: rgb(188, 50, 50);
 }
+
+.roster-row {
+  margin-bottom: 3px;
+}
+
+.name-input,
+.number-input {
+  background-color: darkgray;
+  border: none;
+  border-radius: 5px;
+  padding: 5px
+}
+
+.number-input {
+  width: 20px;
+  text-align: center;
+  margin-right: 10px;
+}

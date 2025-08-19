@@ -1,25 +1,32 @@
 import React from "react";
 import { RosterRow } from "./RosterRow";
-import { useTeamRoster } from "../hooks/useTeamRoster";
+import "./TeamRoster.css";
 
-export function TeamRoster({ teamName, teamColor = "blue" }) {
-  const { rows, handleNumberChange, handleNameChange, addRow, removeRow } = useTeamRoster();
-
+export function TeamRoster({
+  teamName,
+  teamColor,
+  players,
+  onPlayerChange,
+  onAddPlayer,
+  onRemovePlayer,
+}) {
   return (
     <div className={`team ${teamColor}-team`}>
       <div className="team-header">
         <h3>{teamName}</h3>
-        <button onClick={addRow}>Add Player</button>
+        <button className="add-player-button" onClick={onAddPlayer}>
+          Add Player
+        </button>
       </div>
       <div className="roster-input-container">
-        {rows.map((row, i) => (
+        {players.map((player, i) => (
           <RosterRow
             key={i}
-            row={row}
+            player={player}
             index={i}
-            onNumberChange={handleNumberChange}
-            onNameChange={handleNameChange}
-            onRemove={() => removeRow(i)}
+            onNumberChange={(e) => onPlayerChange(i, "number", e.target.value)}
+            onNameChange={(e) => onPlayerChange(i, "name", e.target.value)}
+            onRemove={() => onRemovePlayer(i)}
           />
         ))}
       </div>

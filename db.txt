@@ -1,0 +1,39 @@
+{
+  "home-team": [
+    {
+      "number": 1,
+      "name": "Steve Rogers"
+    },
+    {
+      "number": 2,
+      "name": "Tony Stark"
+    },
+    {
+      "number": 3,
+      "name": "Natasha Romanoff"
+    },
+    {
+      "number": 4,
+      "name": "Bruce Banner"
+    }
+  ],
+  "away-team": [
+    {
+      "number": 1,
+      "name": "Captain America"
+    },
+    {
+      "number": 2,
+      "name": "Ironman"
+    },
+    {
+      "number": 3,
+      "name": "Black Widow"
+    },
+    {
+      "number": 4,
+      "name": "The Hulk"
+    }
+  ]
+}
+

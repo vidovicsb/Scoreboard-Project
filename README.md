@@ -1,12 +1,67 @@
-# React + Vite
+# Scoreboard Roster System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This React application allows you to manage team rosters and submit them to a JSON database.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Add/remove players for each team
+- Input player numbers and names
+- Submit all rosters to database with a single button
+- Automatic filtering of empty name fields
+- Clean, maintainable React architecture
 
-## Expanding the ESLint configuration
+## Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+2. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+3. Start the JSON server (in a separate terminal):
+   ```bash
+   npm run server
+   ```
+
+The JSON server will run on `http://localhost:3001` and watch the `data/db.json` file.
+
+## How to Use
+
+1. **Add Players**: Click "Add Player" to add new rows for each team
+2. **Enter Data**: Fill in player numbers and names
+3. **Submit**: Click "Submit All Rosters" when ready to submit both teams
+4. **Data Filtering**: Empty name fields are automatically excluded from submission
+
+## Data Structure
+
+When you submit rosters, the data is sent to the database with this structure:
+
+```json
+{
+  "teamName": "Home Team",
+  "players": [
+    {
+      "number": 1,
+      "name": "John Doe"
+    }
+  ]
+}
+```
+
+## API Endpoints
+
+- **POST** `/rosters` - Submit a team roster
+- **GET** `/rosters` - Retrieve all submitted rosters
+
+## Notes
+
+- Empty name fields are automatically filtered out before submission
+- Single submit button submits both team rosters at once
+- The database file (`data/db.json`) is automatically updated when rosters are submitted
+- You can view the submitted data by opening `data/db.json` or accessing `http://localhost:3001/rosters`
