@@ -1,0 +1,74 @@
+.main-row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.game-time-stop {
+  font-weight: bold;
+  font-size: 60px;
+  color: red;
+}
+
+.game-time-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-time-run {
+    font-weight: bold;
+      font-size: 60px;
+      color: green;
+      margin: 40px 0px;
+}
+
+.quarter {
+  margin: 0px;
+}
+
+.home-team-name,
+.away-team-name {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.home-team-name {
+  color: rgb(33, 33, 186);
+}
+
+.away-team-name {
+  color: white;
+}
+
+.home-team-score,
+.away-team-score {
+  font-size: 60px;
+  color: black;
+  margin: 10px
+}
+
+.details-row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+.home-team-details,
+.away-team-details,
+.game-details {
+  background-color: pink;
+}
+
+.time-out-left-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.player-roster-row {
+  list-style-type: none;
+  display: flex;
+}
