@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/Rosters.css";
 import { TeamRoster } from "../components/TeamRoster";
 import { useRosters } from "../hooks/useRosters";
+import { Header } from "../components/Header";
 
 export function Rosters() {
   const {
@@ -18,6 +19,7 @@ export function Rosters() {
 
   return (
     <>
+      <Header />
       <div className="rosters-title">
         <h2>Enter the rosters</h2>
       </div>
