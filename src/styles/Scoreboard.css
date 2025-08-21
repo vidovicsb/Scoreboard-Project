@@ -6,10 +6,19 @@
   font-size: 30px;
 }
 
+.game-time-run,
 .game-time-stop {
   font-weight: bold;
   font-size: 60px;
+  margin: 40px 0px;
+}
+
+.game-time-stop {
   color: red;
+}
+
+.game-time-run {
+    color: green;
 }
 
 .game-time-container {
@@ -18,12 +27,6 @@
   align-items: center;
 }
 
-.game-time-run {
-    font-weight: bold;
-      font-size: 60px;
-      color: green;
-      margin: 40px 0px;
-}
 
 .quarter {
   margin: 0px;
@@ -57,9 +60,13 @@
 }
 
 .home-team-details,
-.away-team-details,
-.game-details {
-  background-color: pink;
+.away-team-details {
+    background-color: rgb(137, 135, 135);
+    border-radius: 10px;
+    padding: 5px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .time-out-left-container {
@@ -70,5 +77,44 @@
 
 .player-roster-row {
   list-style-type: none;
-  display: flex;
+  background-color: darkgray;
+  border-radius: 10px;
+  padding: 5px 5px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.player-number {
+  padding: 0;
+  margin-right: 5px;
+}
+
+.player-number,
+.player-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.shotclock-time-run,
+.shotclock-time-stop {
+  font-size: 60px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.shotclock-time-run {
+  color: green;
+}
+
+.shotclock-time-stop {
+  color: red;
+}
+
+.home-tol,
+.away-tol {
+  background-color: darkgray;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 10px;
 }
