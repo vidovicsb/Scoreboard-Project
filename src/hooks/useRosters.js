@@ -1,6 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 
 export function useRosters() {
+
+  const DEFAULT_BASE_URL = "http://localhost:3001";
+
   const [homeTeam, setHomeTeam] = useState(
     Array.from({ length: 14 }, (_, i) => ({ number: i + 1, name: "" }))
   );
@@ -65,7 +68,7 @@ export function useRosters() {
       
       if (homePlayers.length > 0) {
         promises.push(
-          fetch('http://localhost:3001/rosters', {
+          fetch(`${DEFAULT_BASE_URL}/rosters`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -78,7 +81,7 @@ export function useRosters() {
 
       if (awayPlayers.length > 0) {
         promises.push(
-          fetch('http://localhost:3001/rosters', {
+          fetch(`${DEFAULT_BASE_URL}/rosters`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -111,13 +114,13 @@ export function useRosters() {
 
     setIsClearing(true);
     try {
-      const listRes = await fetch('http://localhost:3001/rosters');
+      const listRes = await fetch(`${DEFAULT_BASE_URL}/rosters`);
       if (!listRes.ok) throw new Error(`List failed: ${listRes.status}`);
       const items = await listRes.json();
 
       await Promise.all(
         items.map(item =>
-          fetch(`http://localhost:3001/rosters/${item.id}`, { method: "DELETE" })
+          fetch(`${DEFAULT_BASE_URL}/rosters/${item.id}`, { method: "DELETE" })
         )
       );
 
@@ -135,6 +138,19 @@ export function useRosters() {
     }
   }, [checkRosters]);
 
+  const getPlayers = useCallback(async (signal) => {
+    const res = await fetch(`${DEFAULT_BASE_URL}/rosters`, { signal });
+    if (!res.ok) {
+      throw new Error(`GET /rosters failed: ${res.status} ${res.statusText}`);
+    }
+
+    const data = await res.json();
+    if (!Array.isArray(data)) {
+      throw new Error("Unexpected payload: expected an array of teams");
+    }
+    return data;
+  }, []);
+
   return {
     homeTeam,
     awayTeam,
@@ -145,6 +161,7 @@ export function useRosters() {
     clearAllRosters,
     isClearing,
     hasRosters,
-    checkRosters
+    checkRosters,
+    getPlayers
   };
 }

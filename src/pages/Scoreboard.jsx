@@ -1,29 +1,74 @@
+import { useEffect, useState } from "react";
 import { Header } from "../components/Header";
+import { useRosters } from "../hooks/useRosters";
 import '../styles/Scoreboard.css';
 
-const players = [
-  { number: 1, name: "Player 1 Szepes Aron" },
-  { number: 2, name: "Player 2 Szepes Aron" },
-  { number: 3, name: "Player 3 Szepes Aron" },
-  { number: 4, name: "Player 4 Szepes Aron" },
-  { number: 5, name: "Player 5 Szepes Aron" },
-  { number: 6, name: "Player 6 Szepes Aron" },
-  { number: 7, name: "Player 7 Szepes Aron" },
-  { number: 8, name: "Player 8 Szepes Aron" }
-];
+// const players = [
+//   { number: 1, name: "Player 1 Szepes Aron" },
+//   { number: 2, name: "Player 2 Szepes Aron" },
+//   { number: 3, name: "Player 3 Szepes Aron" },
+//   { number: 4, name: "Player 4 Szepes Aron" },
+//   { number: 5, name: "Player 5 Szepes Aron" },
+//   { number: 6, name: "Player 6 Szepes Aron" },
+//   { number: 7, name: "Player 7 Szepes Aron" },
+//   { number: 8, name: "Player 8 Szepes Aron" }
+// ];
 
-const playerRoster = players.map(player =>
-  <li key={player.number} className="player-roster-row">
-    <span className="player-number">
-      {player.number}
-    </span>
-    <span className="player-name">
-      {player.name}
-    </span>
-  </li>
-)
+// const playerRoster = players.map(player =>
+//   <li key={player.number} className="player-roster-row">
+//     <span className="player-number">
+//       {player.number}
+//     </span>
+//     <span className="player-name">
+//       {player.name}
+//     </span>
+//   </li>
+// )
 
 export function Scoreboard() {
+
+  const { getPlayers } = useRosters();
+
+  const [homeRoster, setHomeRoster] = useState([]);
+  const [awayRoster, setAwayRoster] = useState([]);
+
+  useEffect(() => {
+    const fetchRosters = async () => {
+      const data = await getPlayers();
+
+      if (data && data.length > 0) {
+        const homeTeam = data.find(team => team.teamName === "Home Team");
+        const awayTeam = data.find(team => team.teamName === "Away Team");
+
+        if (homeTeam) setHomeRoster(homeTeam.players);
+        if (awayTeam) setAwayRoster(awayTeam.players);
+      }
+    };
+    fetchRosters();
+  }, [])
+
+  const scrbrdHomeRoster = homeRoster.map(player =>
+    <li key={player.number} className="player-roster-row">
+      <span className="player-number">
+        {player.number}
+      </span>
+      <span className="player-name">
+        {player.name}
+      </span>
+    </li>
+  )
+
+  const scrbrdAwayRoster = awayRoster.map(player =>
+    <li key={player.number} className="player-roster-row">
+      <span className="player-number">
+        {player.number}
+      </span>
+      <span className="player-name">
+        {player.name}
+      </span>
+    </li>
+  )
+
   return (
     <>
       <Header />
@@ -44,19 +89,21 @@ export function Scoreboard() {
       </div>
       <div className="details-row">
         <div className="home-team-details">
-          {playerRoster}
+          {scrbrdHomeRoster}
         </div>
         <div className="game-details">
           <p className="shotclock-time-stop">30</p>
         </div>
         <div className="away-team-details">
-          {playerRoster}
+          {scrbrdAwayRoster}
         </div>
       </div>
       <div className="time-out-left-container">
         <p className="home-tol">TOL: 2</p>
         <p className="away-tol">TOL: 2</p>
       </div>
+      {/* <button onClick={getPlayers}>get players</button> */}
+
     </>
   );
 }

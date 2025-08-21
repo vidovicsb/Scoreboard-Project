@@ -1,3 +1,96 @@
 {
-  "rosters": []
+  "rosters": [
+    {
+      "id": "8772",
+      "teamName": "Home Team",
+      "players": [
+        {
+          "number": 1,
+          "name": "James Anderson"
+        },
+        {
+          "number": 2,
+          "name": "Michael Carter"
+        },
+        {
+          "number": 3,
+          "name": "Daniel Lewis"
+        },
+        {
+          "number": 4,
+          "name": "Anthony Miller"
+        },
+        {
+          "number": 5,
+          "name": "David Wilson"
+        },
+        {
+          "number": 6,
+          "name": "Christopher Johnson"
+        },
+        {
+          "number": 7,
+          "name": "Matthew Thompson"
+        },
+        {
+          "number": 8,
+          "name": "Joshua Harris"
+        },
+        {
+          "number": 9,
+          "name": "Ryan Walker"
+        },
+        {
+          "number": 10,
+          "name": "Andrew Scott"
+        }
+      ]
+    },
+    {
+      "id": "1d21",
+      "teamName": "Away Team",
+      "players": [
+        {
+          "number": 1,
+          "name": "John Davis"
+        },
+        {
+          "number": 2,
+          "name": "William Taylor"
+        },
+        {
+          "number": 3,
+          "name": "Joseph Martinez"
+        },
+        {
+          "number": 4,
+          "name": "Alexander Robinson"
+        },
+        {
+          "number": 5,
+          "name": "Benjamin Hall"
+        },
+        {
+          "number": 6,
+          "name": "Samuel Allen"
+        },
+        {
+          "number": 7,
+          "name": "Jonathan Young"
+        },
+        {
+          "number": 8,
+          "name": "Nicholas King"
+        },
+        {
+          "number": 9,
+          "name": "Ethan Wright"
+        },
+        {
+          "number": 10,
+          "name": "Jacob Hill"
+        }
+      ]
+    }
+  ]
 }
