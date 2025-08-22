@@ -47,27 +47,28 @@ export function Scoreboard() {
     fetchRosters();
   }, [])
 
-  const scrbrdHomeRoster = homeRoster.map(player =>
-    <li key={player.number} className="player-roster-row">
-      <span className="player-number">
-        {player.number}
-      </span>
-      <span className="player-name">
-        {player.name}
-      </span>
-    </li>
-  )
+  const renderRoster = (roster) =>
+    roster.map((player) => (
+      <li key={player.number} className="player-roster-row">
+        <div className="player-name-number">
+          <span className="player-number">
+            {player.number}
+          </span>
+          <span className="player-name">
+            {player.name}
+          </span>
+        </div>
+        <div className="player-exclusions">
+          <span className="exclusion-points"> O O O </span>
+        </div>
+        <div className="player-goals">
+          1
+        </div>
+      </li>
+    ))
 
-  const scrbrdAwayRoster = awayRoster.map(player =>
-    <li key={player.number} className="player-roster-row">
-      <span className="player-number">
-        {player.number}
-      </span>
-      <span className="player-name">
-        {player.name}
-      </span>
-    </li>
-  )
+  const scrbrdHomeRoster = renderRoster(homeRoster);
+  const scrbrdAwayRoster = renderRoster(awayRoster);
 
   return (
     <>
