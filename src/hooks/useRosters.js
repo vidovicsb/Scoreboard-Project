@@ -55,8 +55,24 @@ export function useRosters() {
   };
 
   const submitRosters = async () => {
-    const homePlayers = homeTeam.filter(player => player.name.trim());
-    const awayPlayers = awayTeam.filter(player => player.name.trim());
+    // const homePlayers = homeTeam.filter(player => player.name.trim());
+    // const awayPlayers = awayTeam.filter(player => player.name.trim());
+
+    const homePlayers = homeTeam
+      .filter(player => player.name.trim())
+      .map(player => ({
+        ...player,
+        numOfExclusions: 0,
+        goalsScored: 0
+      }));
+    
+    const awayPlayers = awayTeam
+      .filter(player => player.name.trim())
+      .map(player => ({
+        ...player,
+        numOfExclusions: 0,
+        goalsScored: 0
+      }))
 
     if (homePlayers.length === 0 || awayPlayers.length === 0) {
       alert("Please enter at least one player name for both teams.");

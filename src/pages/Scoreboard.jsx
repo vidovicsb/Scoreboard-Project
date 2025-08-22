@@ -47,24 +47,55 @@ export function Scoreboard() {
     fetchRosters();
   }, [])
 
+  const getExclusions = (numberOfExc) => {
+    if (numberOfExc === 0) {
+      return <div className="exclusion-points"></div>
+    }
+    else if (numberOfExc > 0 && numberOfExc < 3) {
+      return (
+        <div className="exclusion-points">
+          {Array.from({ length: numberOfExc }, (_, i) => (
+            <div key={i}>●</div>
+          ))}
+        </div>
+      )
+    }
+    else if (numberOfExc === 3) {
+      return (
+        <div className="rolled">
+          <div className="rolled-exclusion-points">
+            {Array.from({ length: numberOfExc - 1 }, (_, i) => (
+              <div key={i}>●</div>
+            ))}
+          </div>
+          <div className="rolled-last-exclusion">
+            <div key={3}>●</div>
+          </div>
+        </div>
+      )
+    }
+
+  }
+
   const renderRoster = (roster) =>
     roster.map((player) => (
-      <li key={player.number} className="player-roster-row">
+      <div key={player.number} className="player-roster-row">
         <div className="player-name-number">
-          <span className="player-number">
+          <div className="player-number">
             {player.number}
-          </span>
-          <span className="player-name">
+          </div>
+          <div className="player-name">
             {player.name}
-          </span>
+          </div>
         </div>
         <div className="player-exclusions">
-          <span className="exclusion-points"> O O O </span>
+          {/* <div className="exclusion-points">{player.numOfExclusions === 0 ? "" : }</div> */}
+          {getExclusions(player.numOfExclusions)}
         </div>
         <div className="player-goals">
-          1
+          {player.goalsScored === 0 ? "" : player.goalsScored}
         </div>
-      </li>
+      </div>
     ))
 
   const scrbrdHomeRoster = renderRoster(homeRoster);
@@ -103,7 +134,6 @@ export function Scoreboard() {
         <p className="home-tol">TOL: 2</p>
         <p className="away-tol">TOL: 2</p>
       </div>
-      {/* <button onClick={getPlayers}>get players</button> */}
 
     </>
   );

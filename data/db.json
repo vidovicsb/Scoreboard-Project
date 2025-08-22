@@ -1,94 +1,134 @@
 {
   "rosters": [
     {
-      "id": "8772",
+      "id": "0c0b",
       "teamName": "Home Team",
       "players": [
         {
           "number": 1,
-          "name": "James Anderson"
+          "name": "James Anderson",
+          "numOfExclusions": 0,
+          "goalsScored": 0
         },
         {
           "number": 2,
-          "name": "Michael Carter"
+          "name": "Michael Carter",
+          "numOfExclusions": 0,
+          "goalsScored": 0
         },
         {
           "number": 3,
-          "name": "Daniel Lewis"
+          "name": "Daniel Lewis",
+          "numOfExclusions": 0,
+          "goalsScored": 0
         },
         {
           "number": 4,
-          "name": "Anthony Miller"
+          "name": "Anthony Miller",
+          "numOfExclusions": 0,
+          "goalsScored": 0
         },
         {
           "number": 5,
-          "name": "David Wilson"
+          "name": "David Wilson",
+          "numOfExclusions": 0,
+          "goalsScored": 0
         },
         {
           "number": 6,
-          "name": "Christopher Johnson"
+          "name": "Christopher Johnson",
+          "numOfExclusions": 0,
+          "goalsScored": 4
         },
         {
           "number": 7,
-          "name": "Matthew Thompson"
+          "name": "Matthew Thompson",
+          "numOfExclusions": 0,
+          "goalsScored": 0
         },
         {
           "number": 8,
-          "name": "Joshua Harris"
+          "name": "Joshua Harris",
+          "numOfExclusions": 2,
+          "goalsScored": 0
         },
         {
           "number": 9,
-          "name": "Ryan Walker"
+          "name": "Ryan Walker",
+          "numOfExclusions": 3,
+          "goalsScored": 0
         },
         {
           "number": 10,
-          "name": "Andrew Scott"
+          "name": "Andrew Scott",
+          "numOfExclusions": 1,
+          "goalsScored": 5
         }
       ]
     },
     {
-      "id": "1d21",
+      "id": "ae71",
       "teamName": "Away Team",
       "players": [
         {
           "number": 1,
-          "name": "John Davis"
+          "name": "John Davis",
+          "numOfExclusions": 3,
+          "goalsScored": 0
         },
         {
           "number": 2,
-          "name": "William Taylor"
+          "name": "William Taylor",
+          "numOfExclusions": 2,
+          "goalsScored": 2
         },
         {
           "number": 3,
-          "name": "Joseph Martinez"
+          "name": "Joseph Martinez",
+          "numOfExclusions": 1,
+          "goalsScored": 0
         },
         {
           "number": 4,
-          "name": "Alexander Robinson"
+          "name": "Alexander Robinson",
+          "numOfExclusions": 0,
+          "goalsScored": 0
         },
         {
           "number": 5,
-          "name": "Benjamin Hall"
+          "name": "Benjamin Hall",
+          "numOfExclusions": 0,
+          "goalsScored": 0
         },
         {
           "number": 6,
-          "name": "Samuel Allen"
+          "name": "Samuel Allen",
+          "numOfExclusions": 0,
+          "goalsScored": 0
         },
         {
           "number": 7,
-          "name": "Jonathan Young"
+          "name": "Jonathan Young",
+          "numOfExclusions": 0,
+          "goalsScored": 0
         },
         {
           "number": 8,
-          "name": "Nicholas King"
+          "name": "Nicholas King",
+          "numOfExclusions": 0,
+          "goalsScored": 0
         },
         {
           "number": 9,
-          "name": "Ethan Wright"
+          "name": "Ethan Wright",
+          "numOfExclusions": 0,
+          "goalsScored": 0
         },
         {
           "number": 10,
-          "name": "Jacob Hill"
+          "name": "Jacob Hill",
+          "numOfExclusions": 0,
+          "goalsScored": 0
         }
       ]
     }
